@@ -27,6 +27,8 @@ export default class NewAdvertisement extends Component {
     //   phone: "",
     // })
 
+    console.log('before posting', newAd)
+
     superagent
       .post('https://second-handshop.herokuapp.com/advertisements')
       .send(newAd)

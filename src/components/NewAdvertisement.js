@@ -18,22 +18,20 @@ export default class NewAdvertisement extends Component {
 
     const newAd = this.state 
 
-    this.setState({
-      title: "",
-      picture: "",
-      description: "",
-      price: "",
-      email: "",
-      phone: "",
-    })
+    // this.setState({
+    //   title: "",
+    //   picture: "",
+    //   description: "",
+    //   price: "",
+    //   email: "",
+    //   phone: "",
+    // })
 
     superagent
-      .post('http://localhost:5000/advertisements')
+      .post('https://second-handshop.herokuapp.com/advertisements')
       .send(newAd)
-      .then( res => console.log(res) )
+      .then( res => console.log("Submitted !!", res) )
       .catch(console.error)
-
-
   }
 
   render() {

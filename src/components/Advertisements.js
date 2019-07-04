@@ -8,7 +8,7 @@ export default class Advertisements extends Component {
         <img className="product" src={this.props.ads.picture} alt="Avatar" />
         <div className="container">
           <h4><b>{this.props.ads.title}</b></h4> 
-          <p>{this.props.ads.price * 1000 + '€'}</p> 
+          <p>{this.props.ads.price + '€'}</p> 
         </div>
       </div>
     )

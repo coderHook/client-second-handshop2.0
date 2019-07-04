@@ -1,0 +1,34 @@
+.single-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  max-width: 100%;
+  width: 500px;
+  height: auto;
+  text-align: center;
+  font-family: arial;
+  margin: 50px auto;
+}
+
+img {
+  width: 100%;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.single-card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.single-card button:hover {
+  opacity: 0.7;
+}

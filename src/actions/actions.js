@@ -3,7 +3,7 @@ import request from 'superagent'
 export const GET_ADS = 'GET_ADS'
 export const GET_AD = 'GET_AD'
 
-const baseUrl = 'http://localhost:5000'
+const baseUrl = 'http://localhost:5000' || 'https://second-handshop.herokuapp.com/'
 
 const getAds = ads => ({
   type: GET_ADS,

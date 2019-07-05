@@ -77,7 +77,7 @@ export default class NewAdvertisement extends Component {
                 onChange={this.handleChange} name="phone"
                 /></p>
             <p>
-              <button onSubmit={this.handleSubmit} >Add your Add</button></p>
+              <button onClick={this.handleSubmit} >Add your Add</button></p>
           </div>
         </div>
         </form>

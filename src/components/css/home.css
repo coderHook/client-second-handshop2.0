@@ -5,3 +5,8 @@
   justify-content: center;
   margin: 100px auto;  
 }
+
+.grid-ads img {
+  width: 200px;
+  height: 200px;
+}

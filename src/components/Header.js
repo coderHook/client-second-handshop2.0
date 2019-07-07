@@ -12,9 +12,8 @@ export default class Header extends Component {
     return (
       <header>
         <div className="overlay">
-          <h1>Second Chance</h1>
+          <h2>Second Chance</h2>
           <h3>Sell the stuff that you dont use anymore and give it a second Chance to shine.</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab.</p>
         <br />
         <Link to="/publishAd" >
           <button>

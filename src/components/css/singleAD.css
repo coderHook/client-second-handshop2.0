@@ -1,11 +1,11 @@
 .single-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
   max-width: 100%;
-  width: 500px;
+  width: 400px;
   height: auto;
   text-align: center;
   font-family: arial;
-  margin: 50px auto;
+  margin: 150px auto;
 }
 
 img {
@@ -25,7 +25,6 @@ img {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
   font-size: 18px;
 }
 

@@ -14,6 +14,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 export default class ListOfAds extends Component {
+
   render() {
     return (
       <ListItem>
@@ -32,7 +33,7 @@ export default class ListOfAds extends Component {
           </IconButton>
 
           <IconButton edge="end" aria-label="Delete">
-            <DeleteIcon />
+            <DeleteIcon onClick={this.props.handleDelete} />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>

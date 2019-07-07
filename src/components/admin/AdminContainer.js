@@ -7,6 +7,10 @@ import List from '@material-ui/core/List';
 import { loadAds } from '../../actions/actions'
 
 class AdminContainer extends Component {
+  handleDelete(id) {
+    console.log('Deleting:', id)
+  }
+
   componentDidMount() {
     this.props.loadAds()
   }
@@ -22,7 +26,7 @@ class AdminContainer extends Component {
           <div>
             <List> 
               { this.props.ads 
-                ? this.props.ads.map(ad => <ListOfAds ad={ad} />)
+                ? this.props.ads.map(ad => <ListOfAds ad={ad} handleDelete={() => this.handleDelete(ad.id)}/>)
                 : 'Loading...'
               }
             </List>

@@ -3,6 +3,8 @@ import Advertisements from './Advertisements'
 import { Link } from 'react-router-dom'
 import { loadAds } from '../actions/actions'
 import { connect } from 'react-redux'
+import Header from './Header'
+
 
 import './css/home.css'
 
@@ -17,6 +19,7 @@ class Home extends Component {
     console.log(this.props.advertisements)
     return (
       <div className="main">
+        <Header />
         <div className="grid-ads">
           
         { this.props.advertisements.map(ad =>   
@@ -29,6 +32,7 @@ class Home extends Component {
             key={ad.id} 
             ads={ad} 
           />
+          
         </Link>
         )}
 

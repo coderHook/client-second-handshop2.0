@@ -5,8 +5,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+
+
+import MenuList from './MenuList'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,13 +26,13 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky">
+      <AppBar position ="fixed">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
+
+          <MenuList />
+
           <Typography variant="h6" className={classes.title}>
-            <Link to="/">
+            <Link to="/" style={{ "text-decoration": "none", "color": "white" }}>
               Second Handshop 2.0
             </Link>
           </Typography>

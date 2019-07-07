@@ -1,8 +1,3 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
 header {
 	text-align: center;
 	width: 100%;
@@ -13,6 +8,11 @@ header {
 	overflow: hidden;
 	border-radius: 0 0 85% 85% / 30%;
 }
+
+.overlay {
+	padding-top: 70px;
+}
+
 header .overlay{
 	width: 100%;
 	height: 100%;
@@ -43,6 +43,7 @@ button {
 	margin-bottom: 50px;
 	box-shadow: 0 3px 20px 0 #0000003b;
 }
+
 button:hover{
 	cursor: pointer;
 }

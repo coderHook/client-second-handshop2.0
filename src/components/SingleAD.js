@@ -16,7 +16,7 @@ class SingleAD extends Component {
       <div className="card-wrapper">
       <div className="single-card">
         <img src={this.props.ads.picture} alt=""/>
-        <h1>{this.props.ads.title}</h1>
+        <h2>{this.props.ads.title}</h2>
         <p className="price">${this.props.ads.price}</p>
         <p>{this.props.ads.description}</p>
         <p>Email: {this.props.ads.email}</p>

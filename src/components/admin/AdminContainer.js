@@ -11,7 +11,6 @@ import EditDialog from './EditDialog'
 class AdminContainer extends Component {
   state = {
     open: false,
-    option: "delete"
   }
 
   handleDelete = () => {
@@ -22,12 +21,22 @@ class AdminContainer extends Component {
     this.setState({openDelete: false})
   }
 
-  handleOpen = (id, title, option) => {
-    console.log('Handing OPEN', id, option)
+  handleEdit = (editedAd) => {
+    console.log('Editing:', editedAd)
+  }
+
+  handleChange = (event) => {
+    console.log('event!!!!!', event)
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleOpen = (ad, option) => {
+    console.log('Handing OPEN', option)
     this.setState({
       open: true,
-      id,
-      title,
+      ad,
       option
     })
   }
@@ -35,7 +44,6 @@ class AdminContainer extends Component {
   handleClose = () => {
     console.log('Handing CLOSE')
     this.setState({open: false})
-
   }
 
   componentDidMount() {
@@ -58,10 +66,16 @@ class AdminContainer extends Component {
                       open={this.handleOpen} 
                       close = {this.handleClose}
                       delete = {this.handleDelete}
-                      title = {this.state.title}
-                      id = {this.state.id}
+                      title = {this.state.ad.title}
+                      id = {this.state.ad.id}
                     />
-                    : <EditDialog />
+                    : <EditDialog 
+                      open={this.state.open}
+                      close = {this.handleClose}
+                      ad = {this.state.ad}
+                      handleEdit = {this.handleEdit}
+                      handleChange = {this.hanleChange}
+                      />
                 : null
             }
 
@@ -71,7 +85,7 @@ class AdminContainer extends Component {
                   <ListOfAds
                     key={ad.id.toString()} 
                     ad={ad} 
-                    handleOpen={(option) => this.handleOpen(ad.id, ad.title, option)} 
+                    handleOpen={(ad, option) => this.handleOpen(ad, option)} 
                   />
                   )
                 : 'Loading...'

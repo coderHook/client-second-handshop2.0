@@ -23,12 +23,12 @@ export default class ListOfAds extends Component {
           secondary={this.props.ad.description}
         />
         <ListItemSecondaryAction style={{'margin': '0 10px'}}>
-        <IconButton aria-label="Edit" style={{'marginRight': '10px'}}>
-            <EditIcon onClick={() => this.props.handleOpen("edit")}/>
+        <IconButton aria-label="Edit" style={{'marginRight': '10px'}} onClick={() => this.props.handleOpen(this.props.ad, "edit")}>
+            <EditIcon />
           </IconButton>
 
-          <IconButton edge="end" aria-label="Delete">
-            <DeleteIcon onClick={() => this.props.handleOpen("delete")} />
+          <IconButton edge="end" aria-label="Delete" onClick={() => this.props.handleOpen(this.props.ad, "delete")}>
+            <DeleteIcon />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>

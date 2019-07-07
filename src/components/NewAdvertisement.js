@@ -42,7 +42,7 @@ export default class NewAdvertisement extends Component {
         <h2>Publish Your Advertisement</h2>
         {this.state.submitted && <h2>Submitted!</h2>}
         <form onSubmit={this.handleSubmit}>
-          <div style={{'margin-top': '50px'}}>
+          <div style={{'marginTop': '50px'}}>
             <div className="single-card">
             <h2>Your Ad</h2>
 

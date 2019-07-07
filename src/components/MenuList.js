@@ -42,7 +42,7 @@ const StyledMenuItem = withStyles(theme => ({
   },
 }))(MenuItem);
 
-export default function CustomizedMenus() {
+export default function CustomizedMenus(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -55,13 +55,15 @@ export default function CustomizedMenus() {
 
   return (
     <div>
-
-      <IconButton edge="start" color="inherit" aria-label="Menu" style={{"margin": '10px'}}>
+      <IconButton edge="start" 
+        color="inherit" aria-label="Menu" 
+        style={{"margin": '10px'}}
+        onClick={handleClick}
+        >
             <MenuIcon 
               aria-controls="customized-menu"
               aria-haspopup="true"
               variant="contained"
-              onClick={handleClick}
             />
       </IconButton>
 

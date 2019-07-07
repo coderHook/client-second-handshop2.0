@@ -26,17 +26,17 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position ="fixed">
+      <AppBar position="fixed">
         <Toolbar>
 
           <MenuList />
 
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" style={{ "text-decoration": "none", "color": "white" }}>
+            <Link to="/" style={{ "textDecoration": "none", "color": "white" }}>
               Second Handshop 2.0
             </Link>
           </Typography>
-          <Link to="/admin" style={{ "text-decoration": "none", "color": "white" }}>
+          <Link to="/admin" style={{ "textDecoration": "none", "color": "white" }}>
             <Button color="inherit">Login</Button>
           </Link>
         </Toolbar>

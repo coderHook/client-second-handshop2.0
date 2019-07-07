@@ -36,7 +36,9 @@ export default function ButtonAppBar() {
               Second Handshop 2.0
             </Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to="/admin" style={{ "text-decoration": "none", "color": "white" }}>
+            <Button color="inherit">Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

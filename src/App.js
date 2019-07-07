@@ -6,6 +6,7 @@ import Home from './components/Home'
 import SingleAD from './components/SingleAD'
 import NewAdvertisement from './components/NewAdvertisement'
 import Menu from './components/Menu'
+import AdminContainer from './components/admin/AdminContainer'
 
 import './App.css'
 
@@ -16,6 +17,7 @@ class App extends Component {
         <Menu />
         <div>
           <Route path="/" exact component={Home} />
+          <Route path="/admin" exact component={AdminContainer} />
           <Route path="/advertisement/:id" component={SingleAD} />
           <Route path="/publishAd" component={NewAdvertisement} />
         </div>

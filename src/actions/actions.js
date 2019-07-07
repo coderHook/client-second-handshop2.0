@@ -39,8 +39,8 @@ export const loadAd = (id) => (dispatch) => {
 }
 
 export const deleteAd = (id) => (dispatch) => {
-  request(`${baseUrl}/advertisements/${id}`)
-    .delete()
+  request
+    .delete(`${baseUrl}/advertisements/${id}`)
     .then(response => {
       console.log('DELETING', response)
       dispatch(delAd(id))

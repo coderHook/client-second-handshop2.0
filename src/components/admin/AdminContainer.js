@@ -4,11 +4,12 @@ import ListOfAds from './ListOfAds'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
-import { loadAds } from '../../actions/actions'
+import { loadAds, deleteAd } from '../../actions/actions'
 
 class AdminContainer extends Component {
   handleDelete(id) {
     console.log('Deleting:', id)
+    this.props.deleteAd(id)
   }
 
   componentDidMount() {
@@ -43,4 +44,4 @@ const mapStateToPropt = (state) => {
   }
 }
 
-export default connect(mapStateToPropt, {loadAds})(AdminContainer)
+export default connect(mapStateToPropt, { loadAds, deleteAd })(AdminContainer)

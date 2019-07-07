@@ -1,3 +1,7 @@
+.card-wrapper {
+  margin-top: 150px;
+}
+
 .single-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
   max-width: 100%;
@@ -5,7 +9,7 @@
   height: auto;
   text-align: center;
   font-family: arial;
-  margin: 150px auto;
+  margin: 0 auto;
 }
 
 img {

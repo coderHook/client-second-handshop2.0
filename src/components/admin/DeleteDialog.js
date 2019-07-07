@@ -15,7 +15,7 @@ export default function AlertDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{`You are about to Delete: ${props.title} with id of #${props.id}`}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{`You are about to Delete: "${props.title}" with id of #${props.id}`}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Once you have deleted this advertisement, you will not be able to see it again.

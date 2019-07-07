@@ -6,10 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { loadAds, deleteAd } from '../../actions/actions'
 import DeleteDialog from './DeleteDialog'
+import EditDialog from './EditDialog'
 
 class AdminContainer extends Component {
   state = {
-    open: false
+    open: false,
+    option: "delete"
   }
 
   handleDelete = () => {
@@ -17,15 +19,16 @@ class AdminContainer extends Component {
 
     this.props.deleteAd(this.state.id) 
 
-    this.setState({open: false})
+    this.setState({openDelete: false})
   }
 
-  handleOpen = (id, title) => {
-    console.log('Handing OPEN', id)
+  handleOpen = (id, title, option) => {
+    console.log('Handing OPEN', id, option)
     this.setState({
       open: true,
       id,
-      title
+      title,
+      option
     })
   }
 
@@ -47,23 +50,28 @@ class AdminContainer extends Component {
           <Typography variant="h6">
             List of Advertisements Published
           </Typography>
+
           <div>
-            { this.state.open && 
-              <DeleteDialog 
-                open={this.handleOpen} 
-                close = {this.handleClose}
-                delete = {this.handleDelete}
-                title = {this.state.title}
-                id = {this.state.id}
-              />
+            { this.state.open 
+                ? this.state.option === "delete"
+                  ? <DeleteDialog 
+                      open={this.handleOpen} 
+                      close = {this.handleClose}
+                      delete = {this.handleDelete}
+                      title = {this.state.title}
+                      id = {this.state.id}
+                    />
+                    : <EditDialog />
+                : null
             }
+
             <List> 
               { this.props.ads 
                 ? this.props.ads.map(ad => 
                   <ListOfAds
                     key={ad.id.toString()} 
                     ad={ad} 
-                    handleOpen={() => this.handleOpen(ad.id, ad.title)} 
+                    handleOpen={(option) => this.handleOpen(ad.id, ad.title, option)} 
                   />
                   )
                 : 'Loading...'

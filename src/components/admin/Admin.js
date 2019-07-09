@@ -40,7 +40,7 @@ function Admin() {
     const [secondary, setSecondary] = React.useState(true);
 
     return (
-      <div style={{'margin-top': '100px', 'text-align': 'center'}}>
+      <div style={{'marginTop': '100px', 'textAlign': 'center'}}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" className={classes.title}>
             List of Advertisements Published

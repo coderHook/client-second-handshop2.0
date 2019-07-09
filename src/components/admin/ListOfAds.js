@@ -18,7 +18,7 @@ export default class ListOfAds extends Component {
             <img src={this.props.ad.picture} alt="" />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText
+        <ListItemText style={{'flexShrink': '1'}}
           primary={this.props.ad.title}
           secondary={this.props.ad.description}
         />

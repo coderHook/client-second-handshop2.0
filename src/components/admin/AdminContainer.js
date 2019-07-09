@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import { loadAds, deleteAd } from '../../actions/actions'
 import DeleteDialog from './DeleteDialog'
 import EditDialog from './EditDialog'
+import './adminContainer.css'
 
 class AdminContainer extends Component {
   state = {
@@ -21,14 +22,18 @@ class AdminContainer extends Component {
     this.setState({openDelete: false})
   }
 
-  handleEdit = (editedAd) => {
-    console.log('Editing:', editedAd)
+  handleEdit = () => {
+    const { picture, title, description, price, email, phone, ad } = this.state
+    const msgEdited = { picture, title, description, price, email, phone }
+
+    console.log('Editing:', msgEdited)
   }
 
-  handleChange = (event) => {
-    console.log('event!!!!!', event)
+  handleChange(event) {
+    console.log('event!!!!!', event.target.value)
+    
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.id]: event.target.value
     })
   }
 
@@ -53,8 +58,8 @@ class AdminContainer extends Component {
   render() {
     console.log('whats in STORE:', this.props.ads)
     return (
-      <div style={{'marginTop': '100px', 'textAlign': 'center'}}>
-        <Grid item xs={12} md={6}>
+      <div className="listAds-Admin" style={{'marginTop': '100px', 'textAlign': 'center'}}>
+        <Grid item xs={12} md={6} style={{'margin': '0 auto'}} >
           <Typography variant="h6">
             List of Advertisements Published
           </Typography>
@@ -73,8 +78,9 @@ class AdminContainer extends Component {
                       open={this.state.open}
                       close = {this.handleClose}
                       ad = {this.state.ad}
+                      state = {this.state}
                       handleEdit = {this.handleEdit}
-                      handleChange = {this.hanleChange}
+                      handleChange = {(e) => this.handleChange(e)}
                       />
                 : null
             }

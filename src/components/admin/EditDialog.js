@@ -8,16 +8,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function FormDialog(props) {
-  // const [open, setOpen] = React.useState(false);
-
-  // function handleClickOpen() {
-  //   setOpen(true);
-  // }
-
-  // function handleClose() {
-  //   setOpen(false);
-  // }
-
   return (
     <div>
       <Dialog open={props.open} onClose={props.close} aria-labelledby="form-dialog-title">
@@ -32,8 +22,8 @@ export default function FormDialog(props) {
             id="picture"
             label="Picture https://example.com"
             type="url"
-            value={props.ad.picture}
-            onChange = {() => props.handleChange}
+            value={props.state.picture || props.ad.picture}
+            onChange = {props.handleChange}
             fullWidth
           />
           <TextField
@@ -42,7 +32,8 @@ export default function FormDialog(props) {
             id="title"
             label="Title"
             type="text"
-            value={props.ad.title}
+            value={props.state.title || props.ad.title}
+            onChange = {props.handleChange}
             fullWidth
           />
           <TextField
@@ -51,7 +42,8 @@ export default function FormDialog(props) {
             id="description"
             label="Description"
             type="textArea"
-            value={props.ad.description}
+            value={props.state.description || props.ad.description}
+            onChange = {props.handleChange}            
             fullWidth
           />
           <TextField
@@ -60,17 +52,17 @@ export default function FormDialog(props) {
             id="price"
             label="Price"
             type="number"
-            value={props.ad.price}
-            fullWidth
+            value={props.state.price || props.ad.price}
+            onChange = {props.handleChange}            fullWidth
           />
           <TextField
             autoFocus
             margin="dense"
-            id="description"
+            id="phone"
             label="Phone"
             type="number"
-            value={props.ad.phone}
-            fullWidth
+            value={props.state.phone || props.ad.phone}
+            onChange = {props.handleChange}            fullWidth
           />
           <TextField
             autoFocus
@@ -78,8 +70,8 @@ export default function FormDialog(props) {
             id="email"
             label="Email"
             type="email"
-            value={props.ad.email}
-            fullWidth
+            value={props.state.email || props.ad.email}
+            onChange = {props.handleChange}            fullWidth
           />
           
         </DialogContent>

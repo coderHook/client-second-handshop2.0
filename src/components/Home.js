@@ -11,33 +11,33 @@ import './css/home.css'
 class Home extends Component {
 
   componentDidMount() {
-      this.props.loadAds()
+    this.props.loadAds()
   }
 
   render() {
-    if(!this.props.advertisements) return 'Loading...'
+    if (!this.props.advertisements) return 'Loading...'
     console.log(this.props.advertisements)
     return (
       <div className="main">
         <Header />
         <div className="grid-ads">
-          
-        { this.props.advertisements.map(ad =>   
-        <Link to={`/advertisement/${ad.id}`} 
-            key={ad.id} 
-            ads={ad}
-          >
-            
-          <Advertisements 
-            key={ad.id} 
-            ads={ad} 
-          />
-          
-        </Link>
-        )}
 
+          {this.props.advertisements.map(ad =>
+            <Link to={`/advertisement/${ad.id}`}
+              key={ad.id}
+              ads={ad}
+            >
+
+              <Advertisements
+                key={ad.id}
+                ads={ad}
+              />
+
+            </Link>
+          )}
+
+        </div>
       </div>
-    </div>
     )
   }
 }

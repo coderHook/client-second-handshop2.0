@@ -13,12 +13,12 @@ export default class ListOfAds extends Component {
   render() {
     return (
       <ListItem>
-        <ListItemAvatar>
+        <ListItemAvatar className="d-none">
           <Avatar>
             <img src={this.props.ad.picture} alt="" />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText style={{'flexShrink': '1'}}
+        <ListItemText
           primary={this.props.ad.title}
           secondary={this.props.ad.description}
         />
@@ -27,7 +27,8 @@ export default class ListOfAds extends Component {
             <EditIcon />
           </IconButton>
 
-          <IconButton edge="end" aria-label="Delete" onClick={() => this.props.handleOpen(this.props.ad, "delete")}>
+          <IconButton edge="end" aria-label="Delete" 
+            onClick={() => this.props.handleOpen(this.props.ad, "delete")}>
             <DeleteIcon />
           </IconButton>
         </ListItemSecondaryAction>

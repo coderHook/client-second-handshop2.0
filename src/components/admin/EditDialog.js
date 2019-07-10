@@ -22,7 +22,7 @@ export default function FormDialog(props) {
             id="picture"
             label="Picture https://example.com"
             type="url"
-            value={props.state.picture || props.ad.picture}
+            value={props.ad.picture}
             onChange = {props.handleChange}
             fullWidth
           />
@@ -32,7 +32,7 @@ export default function FormDialog(props) {
             id="title"
             label="Title"
             type="text"
-            value={props.state.title || props.ad.title}
+            value={props.ad.title}
             onChange = {props.handleChange}
             fullWidth
           />
@@ -42,7 +42,7 @@ export default function FormDialog(props) {
             id="description"
             label="Description"
             type="textArea"
-            value={props.state.description || props.ad.description}
+            value={props.ad.description}
             onChange = {props.handleChange}            
             fullWidth
           />
@@ -52,8 +52,9 @@ export default function FormDialog(props) {
             id="price"
             label="Price"
             type="number"
-            value={props.state.price || props.ad.price}
-            onChange = {props.handleChange}            fullWidth
+            value={props.ad.price}
+            onChange = {props.handleChange}            
+            fullWidth
           />
           <TextField
             autoFocus
@@ -61,8 +62,9 @@ export default function FormDialog(props) {
             id="phone"
             label="Phone"
             type="number"
-            value={props.state.phone || props.ad.phone}
-            onChange = {props.handleChange}            fullWidth
+            value={props.ad.phone}
+            onChange = {props.handleChange}            
+            fullWidth
           />
           <TextField
             autoFocus
@@ -70,8 +72,9 @@ export default function FormDialog(props) {
             id="email"
             label="Email"
             type="email"
-            value={props.state.email || props.ad.email}
-            onChange = {props.handleChange}            fullWidth
+            value={props.ad.email}
+            onChange = {props.handleChange}           
+            fullWidth
           />
           
         </DialogContent>
@@ -79,7 +82,7 @@ export default function FormDialog(props) {
           <Button onClick={props.close} color="primary">
             Cancel
           </Button>
-          <Button onClick={props.handleEdit} color="primary">
+          <Button type="submit" onClick={props.handleEdit} color="primary">
             Subscribe
           </Button>
         </DialogActions>

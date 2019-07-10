@@ -5,13 +5,16 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { loadAds, deleteAd } from '../../actions/actions'
+import { editAd } from '../../actions/adminActions'
 import DeleteDialog from './DeleteDialog'
 import EditDialog from './EditDialog'
-import './adminContainer.css'
+import request from 'superagent'
+
 
 class AdminContainer extends Component {
   state = {
     open: false,
+    ad: {}
   }
 
   handleDelete = () => {
@@ -23,22 +26,31 @@ class AdminContainer extends Component {
   }
 
   handleEdit = () => {
-    const { picture, title, description, price, email, phone, ad } = this.state
-    const msgEdited = { picture, title, description, price, email, phone }
+    const editedAd = this.state.ad
+    this.setState({open: false})
 
-    console.log('Editing:', msgEdited)
+    console.log('Editing:', editedAd)
+
+    // request
+    // .put(`https://second-handshop.herokuapp.com/advertisements/${editedAd.id}`)
+    // .send(editAd)
+    // .then(response => console.log('CLient', response))
+    // .catch(console.error)
+
+    this.props.editAd(editedAd)
   }
 
-  handleChange(event) {
-    console.log('event!!!!!', event.target.value)
-    
+  handleChange(event) {  
     this.setState({
-      [event.target.id]: event.target.value
+      ad: {
+        ...this.state.ad,
+        [event.target.id]: event.target.value
+      }
     })
   }
 
   handleOpen = (ad, option) => {
-    console.log('Handing OPEN', option)
+    console.log('Handing OPEN', option, ad)
     this.setState({
       open: true,
       ad,
@@ -56,7 +68,6 @@ class AdminContainer extends Component {
   }
 
   render() {
-    console.log('whats in STORE:', this.props.ads)
     return (
       <div className="listAds-Admin" style={{'marginTop': '100px', 'textAlign': 'center'}}>
         <Grid item xs={12} md={6} style={{'margin': '0 auto'}} >
@@ -110,4 +121,4 @@ const mapStateToPropt = (state) => {
   }
 }
 
-export default connect(mapStateToPropt, { loadAds, deleteAd })(AdminContainer)
+export default connect(mapStateToPropt, { loadAds, deleteAd, editAd })(AdminContainer)

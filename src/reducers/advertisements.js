@@ -9,7 +9,6 @@ export const reducer = (state = null, action = {}) => {
       return action.payload
     case UPDATE_AD:
       return state.filter(ad => ad.id !== action.payload.id).concat(action.payload);
-      
     case DEL_AD:
       return state.filter(ads => ads.id !== action.payload)
     default:

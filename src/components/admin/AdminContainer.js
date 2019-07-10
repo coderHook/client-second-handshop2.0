@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import ListOfAds from './ListOfAds'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -8,8 +8,6 @@ import { loadAds, deleteAd } from '../../actions/actions'
 import { editAd } from '../../actions/adminActions'
 import DeleteDialog from './DeleteDialog'
 import EditDialog from './EditDialog'
-import request from 'superagent'
-
 
 class AdminContainer extends Component {
   state = {
@@ -18,29 +16,21 @@ class AdminContainer extends Component {
   }
 
   handleDelete = () => {
-    console.log(`Deleting Ad: ${this.state.id}`)
+    console.log(`Deleting Ad: ${this.state.ad.id}`)
 
-    this.props.deleteAd(this.state.id) 
+    this.props.deleteAd(this.state.ad.id)
 
-    this.setState({openDelete: false})
+    this.setState({ openDelete: false })
   }
 
   handleEdit = () => {
     const editedAd = this.state.ad
-    this.setState({open: false})
-
-    console.log('Editing:', editedAd)
-
-    // request
-    // .put(`https://second-handshop.herokuapp.com/advertisements/${editedAd.id}`)
-    // .send(editAd)
-    // .then(response => console.log('CLient', response))
-    // .catch(console.error)
+    this.setState({ open: false })
 
     this.props.editAd(editedAd)
   }
 
-  handleChange(event) {  
+  handleChange(event) {
     this.setState({
       ad: {
         ...this.state.ad,
@@ -60,7 +50,7 @@ class AdminContainer extends Component {
 
   handleClose = () => {
     console.log('Handing CLOSE')
-    this.setState({open: false})
+    this.setState({ open: false })
   }
 
   componentDidMount() {
@@ -69,42 +59,42 @@ class AdminContainer extends Component {
 
   render() {
     return (
-      <div className="listAds-Admin" style={{'marginTop': '100px', 'textAlign': 'center'}}>
-        <Grid item xs={12} md={6} style={{'margin': '0 auto'}} >
+      <div className="listAds-Admin" style={{ 'marginTop': '100px', 'textAlign': 'center' }}>
+        <Grid item xs={12} md={6} style={{ 'margin': '0 auto' }} >
           <Typography variant="h6">
             List of Advertisements Published
           </Typography>
 
           <div>
-            { this.state.open 
-                ? this.state.option === "delete"
-                  ? <DeleteDialog 
-                      open={this.handleOpen} 
-                      close = {this.handleClose}
-                      delete = {this.handleDelete}
-                      title = {this.state.ad.title}
-                      id = {this.state.ad.id}
-                    />
-                    : <EditDialog 
-                      open={this.state.open}
-                      close = {this.handleClose}
-                      ad = {this.state.ad}
-                      state = {this.state}
-                      handleEdit = {this.handleEdit}
-                      handleChange = {(e) => this.handleChange(e)}
-                      />
-                : null
+            {this.state.open
+              ? this.state.option === "delete"
+                ? <DeleteDialog
+                  open={this.handleOpen}
+                  close={this.handleClose}
+                  delete={this.handleDelete}
+                  title={this.state.ad.title}
+                  id={this.state.ad.id}
+                />
+                : <EditDialog
+                  open={this.state.open}
+                  close={this.handleClose}
+                  ad={this.state.ad}
+                  state={this.state}
+                  handleEdit={this.handleEdit}
+                  handleChange={(e) => this.handleChange(e)}
+                />
+              : null
             }
 
-            <List> 
-              { this.props.ads 
-                ? this.props.ads.map(ad => 
+            <List>
+              {this.props.ads
+                ? this.props.ads.map(ad =>
                   <ListOfAds
-                    key={ad.id.toString()} 
-                    ad={ad} 
-                    handleOpen={(ad, option) => this.handleOpen(ad, option)} 
+                    key={ad.id.toString()}
+                    ad={ad}
+                    handleOpen={(ad, option) => this.handleOpen(ad, option)}
                   />
-                  )
+                )
                 : 'Loading...'
               }
             </List>

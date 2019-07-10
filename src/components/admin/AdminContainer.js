@@ -20,7 +20,7 @@ class AdminContainer extends Component {
 
     this.props.deleteAd(this.state.ad.id)
 
-    this.setState({ openDelete: false })
+    this.setState({ open: false })
   }
 
   handleEdit = () => {

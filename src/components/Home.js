@@ -22,7 +22,7 @@ class Home extends Component {
         <Header />
         <div className="grid-ads">
 
-          {this.props.advertisements.map(ad =>
+          {this.props.advertisements && this.props.advertisements.map(ad =>
             <Link to={`/advertisement/${ad.id}`}
               key={ad.id}
               ads={ad}

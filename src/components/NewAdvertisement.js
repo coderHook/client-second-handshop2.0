@@ -9,7 +9,7 @@ export default class NewAdvertisement extends Component {
   handleChange = (event) => {
     console.log('event!!!!!',event.target.name)
     this.setState({
-      [event.target.name]: event.target.value.trim()
+      [event.target.name]: event.target.value
     })
   }
 

@@ -5,7 +5,6 @@ import { loadAds } from '../actions/actions'
 import { connect } from 'react-redux'
 import Header from './Header'
 
-
 import './css/home.css'
 
 class Home extends Component {
@@ -16,18 +15,16 @@ class Home extends Component {
 
   render() {
     if (!this.props.advertisements) return 'Loading...'
-    console.log(this.props.advertisements)
     return (
       <div className="main">
         <Header />
         <div className="grid-ads">
-
           {this.props.advertisements && this.props.advertisements.map(ad =>
             <Link to={`/advertisement/${ad.id}`}
               key={ad.id}
               ads={ad}
             >
-
+              
               <Advertisements
                 key={ad.id}
                 ads={ad}
@@ -35,7 +32,6 @@ class Home extends Component {
 
             </Link>
           )}
-
         </div>
       </div>
     )

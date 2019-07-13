@@ -5,10 +5,7 @@ import './css/header.css'
 
 export default class Header extends Component {
   render() {
-    console.log('URL', window.location.href.split('/')
-    )
-
-    const url = window.location.href.split('/')
+ 
     return (
       <header>
         <div className="overlay">
@@ -17,10 +14,7 @@ export default class Header extends Component {
         <br />
         <Link to="/publishAd" >
           <button>
-            { url[url.length - 1] === 'publishAd' 
-              ? 'Buy Stuff'
-              : 'Publish Add'
-            }
+            Publish Add
           </button>
         </Link>
           </div>

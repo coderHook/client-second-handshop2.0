@@ -4,7 +4,8 @@ export const GET_ADS = 'GET_ADS'
 export const GET_AD = 'GET_AD'
 export const DEL_AD = 'DEL_AD'
 
-const baseUrl = 'https://second-handshop.herokuapp.com'
+// const baseUrl = 'https://second-handshop.herokuapp.com'
+const baseUrl = 'http://localhost:5000'
 
 const getAds = ads => ({
   type: GET_ADS,
@@ -32,7 +33,6 @@ export const loadAds = () => (dispatch) => {
 export const loadAd = (id) => (dispatch) => {
   request(`${baseUrl}/advertisements/${id}`)
   .then(response => {
-    console.log(response)
     dispatch(getAd(response.body))
   })
   .catch(console.error)

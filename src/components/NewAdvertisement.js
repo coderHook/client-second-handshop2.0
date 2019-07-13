@@ -38,7 +38,7 @@ export default class NewAdvertisement extends Component {
 
   render() {
     return (
-      <div style={{'margin-top': '100px', 'text-align': 'center'}}>
+      <div style={{'marginTop': '100px', 'textAlign': 'center'}}>
         <h2>Publish Your Advertisement</h2>
         {this.state.submitted && <h2>Submitted!</h2>}
         <form onSubmit={this.handleSubmit}>

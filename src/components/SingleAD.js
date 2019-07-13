@@ -6,21 +6,22 @@ import { loadAd } from '../actions/actions'
 class SingleAD extends Component {
   componentDidMount(){
     const id = this.props.match.params.id
-    console.log('ID', id)
     this.props.loadAd(id)
   }
 
   render() {
-    if(!this.props.ads) return 'Loading...'
+    const { singleAd } = this.props
+
+    if(!this.props.singleAd) return 'Loading...'
     return (
       <div className="card-wrapper">
       <div className="single-card">
-        <img src={this.props.ads.picture} alt=""/>
-        <h2>{this.props.ads.title}</h2>
-        <p className="price">${this.props.ads.price}</p>
-        <p>{this.props.ads.description}</p>
-        <p>Email: {this.props.ads.email}</p>
-        <p>Phone: {this.props.ads.phone}</p>
+        <img src={singleAd.picture} alt=""/>
+        <h2>{singleAd.title}</h2>
+        <p className="price">${singleAd.price}</p>
+        <p>{singleAd.description}</p>
+        <p>Email: {singleAd.email}</p>
+        <p>Phone: {singleAd.phone}</p>
         <p><button>Add to your WishList</button></p>
       </div>
       </div>
@@ -30,7 +31,7 @@ class SingleAD extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    ads: state.advertisements
+    singleAd: state.singleAd
   }
 }
 

@@ -5,8 +5,8 @@ export const GET_AD = 'GET_AD'
 export const DEL_AD = 'DEL_AD'
 export const SET_USER = 'SET_USER'
 
-// const baseUrl = 'https://second-handshop.herokuapp.com'
-const baseUrl = 'http://localhost:5000'
+const baseUrl = 'https://second-handshop.herokuapp.com'
+// const baseUrl = 'http://localhost:5000'
 
 const getAds = ads => ({
   type: GET_ADS,

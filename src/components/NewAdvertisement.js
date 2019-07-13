@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import superagent from 'superagent'
 import './css/singleAD.css'
+import LoginContainer from './login/LoginContainer'
+import { connect } from 'react-redux'
 
-export default class NewAdvertisement extends Component {
+
+class NewAdvertisement extends Component {
   state = {
   }
 
@@ -27,19 +30,31 @@ export default class NewAdvertisement extends Component {
       phone: "",
     })
 
+    // const url = https://second-handshop.herokuapp.com/advertisements
     superagent
-      .post('https://second-handshop.herokuapp.com/advertisements')
+      .post('http://localhost:5000/advertisements')
+      .set({ 'Authorization': 'Bearer ' + this.props.currentUser.token })
       .send(newAd)
-      .then( res => console.log("Submitted !!", res) )
+      .then( result => {
+        console.log('client: result', result)
+
+      })
       .catch(console.error)
 
       this.setState({submitted: true})
   }
 
   render() {
+    if(!this.props.currentUser) return (
+    <div>
+      <h2>Login to publish your Advertisement</h2>
+      <LoginContainer />
+    </div>)
+
     return (
       <div style={{'marginTop': '100px', 'textAlign': 'center'}}>
         <h2>Publish Your Advertisement</h2>
+        {this.props.currentUser.username}
         {this.state.submitted && <h2>Submitted!</h2>}
         <form onSubmit={this.handleSubmit}>
           <div style={{'marginTop': '50px'}}>
@@ -104,3 +119,11 @@ export default class NewAdvertisement extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps, null)(NewAdvertisement)

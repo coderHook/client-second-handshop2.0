@@ -7,6 +7,7 @@ import SingleAD from './components/SingleAD'
 import NewAdvertisement from './components/NewAdvertisement'
 import Menu from './components/Menu'
 import AdminContainer from './components/admin/AdminContainer'
+import LoginContainer from './components/login/LoginContainer'
 
 import './App.css'
 
@@ -17,6 +18,7 @@ class App extends Component {
         <Menu />
         <div>
           <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={ LoginContainer } />
           <Route path="/admin" exact component={AdminContainer} />
           <Route path="/advertisement/:id" component={SingleAD} />
           <Route path="/publishAd" component={NewAdvertisement} />

@@ -3,6 +3,7 @@ import request from 'superagent'
 export const GET_ADS = 'GET_ADS'
 export const GET_AD = 'GET_AD'
 export const DEL_AD = 'DEL_AD'
+export const SET_USER = 'SET_USER'
 
 // const baseUrl = 'https://second-handshop.herokuapp.com'
 const baseUrl = 'http://localhost:5000'
@@ -22,7 +23,12 @@ const delAd = id => ({
   payload: id
 })
 
-export const loadAds = () => (dispatch) => {
+const setUser = (user) => ({
+  type: SET_USER,
+  payload: user
+})
+
+export const loadAds = (token) => (dispatch) => {
   request(`${baseUrl}/advertisements`)
     .then(response => {
       dispatch(getAds(response.body))
@@ -44,6 +50,17 @@ export const deleteAd = (id) => (dispatch) => {
     .then(response => {
       console.log('DELETING', response)
       dispatch(delAd(id))
+    })
+    .catch(console.error)
+}
+
+export const loginUser = (user) => (dispatch) => {
+  request
+    .post(`${baseUrl}/login`)
+    .send(user)
+    .then(response => {
+      console.log("server -> Client", response.body)
+      dispatch(setUser(response.body))
     })
     .catch(console.error)
 }

@@ -13,6 +13,7 @@ class SingleAD extends Component {
     const { singleAd } = this.props
 
     if(!this.props.singleAd) return 'Loading...'
+
     return (
       <div className="card-wrapper">
       <div className="single-card">
@@ -31,7 +32,8 @@ class SingleAD extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    singleAd: state.singleAd
+    singleAd: state.singleAd,
+    currentUser: state.currentUser
   }
 }
 

@@ -1,0 +1,9 @@
+.welcome {
+  display: flex;
+  flex-direction: row;
+}
+
+.welcome>b {
+  align-self: center;
+  margin-right: 10px;
+}

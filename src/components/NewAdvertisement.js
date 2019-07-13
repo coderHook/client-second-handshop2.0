@@ -7,6 +7,12 @@ import { connect } from 'react-redux'
 
 class NewAdvertisement extends Component {
   state = {
+    title: "",
+    picture: "",
+    description: "",
+    price: "",
+    email: "",
+    phone: ""
   }
 
   handleChange = (event) => {
@@ -37,11 +43,10 @@ class NewAdvertisement extends Component {
       .send(newAd)
       .then( result => {
         console.log('client: result', result)
-
+        this.setState({submitted: true})  
       })
       .catch(console.error)
 
-      this.setState({submitted: true})
   }
 
   render() {
@@ -111,7 +116,7 @@ class NewAdvertisement extends Component {
                 name="phone"
                 /></p>
             <p>
-              <button onClick={this.handleSubmit} >Add your Add</button></p>
+              <button onClick={this.handleSubmit}>Add your Advertisement</button></p>
           </div>
         </div>
         </form>

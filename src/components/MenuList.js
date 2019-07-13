@@ -9,6 +9,7 @@ import ListIcon from '@material-ui/icons/List';
 import SendIcon from '@material-ui/icons/Send';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+// import PowerSetting from '@material-ui/icons/power_settings_new';
 import { Link } from 'react-router-dom'
 
 const StyledMenu = withStyles({
@@ -97,6 +98,15 @@ export default function CustomizedMenus(props) {
             <WishIcon />
           </ListItemIcon>
           <ListItemText primary="WishList" />
+        </StyledMenuItem>
+
+        <StyledMenuItem onClick={props.handleOff}>
+          <ListItemIcon>
+          <i className="material-icons">
+            power_settings_new
+          </i>          
+        </ListItemIcon>
+          <ListItemText primary="Disconnect" />
         </StyledMenuItem>
 
       </StyledMenu>

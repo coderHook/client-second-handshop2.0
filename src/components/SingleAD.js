@@ -21,9 +21,17 @@ class SingleAD extends Component {
         <h2>{singleAd.title}</h2>
         <p className="price">${singleAd.price}</p>
         <p>{singleAd.description}</p>
-        <p>Email: {singleAd.email}</p>
-        <p>Phone: {singleAd.phone}</p>
-        <p><button>Add to your WishList</button></p>
+
+        { 
+          !this.props.currentUser 
+          ? <div style={{'margin': '50px'}}><i>Phone and Email only available for registered users</i></div>
+          : <div>
+              <p>Email: {singleAd.email}</p>
+              <p>Phone: {singleAd.phone}</p>
+              <p><button>Add to your WishList</button></p>
+            </div>
+        }
+        
       </div>
       </div>
     )

@@ -23,7 +23,7 @@ const delAd = id => ({
   payload: id
 })
 
-const setUser = (user) => ({
+export const setUser = (user) => ({
   type: SET_USER,
   payload: user
 })

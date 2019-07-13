@@ -75,6 +75,18 @@ export default function CustomizedMenus(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+        {
+        <StyledMenuItem>
+          <ListItemIcon>
+          <i className="material-icons"> dashboard </i>
+          </ListItemIcon>
+          <Link to="/admin">
+            <ListItemText primary="Dashboard" onClick={handleClose} />
+          </Link>
+        </StyledMenuItem>
+        }
+
+
         <StyledMenuItem>
           <ListItemIcon>
             <SendIcon />

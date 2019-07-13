@@ -58,6 +58,8 @@ class AdminContainer extends Component {
   }
 
   render() {
+    if(!this.props.currentUser) return <h3>You have no Admin rights to access this content</h3>
+    if(this.props.currentUser.username !== 'admin') return <h3>You have no Admin rights to access this content</h3>
     return (
       <div className="listAds-Admin" style={{ 'marginTop': '100px', 'textAlign': 'center' }}>
         <Grid item xs={12} md={6} style={{ 'margin': '0 auto' }} >
@@ -107,7 +109,8 @@ class AdminContainer extends Component {
 
 const mapStateToPropt = (state) => {
   return {
-    ads: state.advertisements
+    ads: state.advertisements,
+    currentUser: state.currentUser
   }
 }
 

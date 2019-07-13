@@ -59,7 +59,6 @@ export const loginUser = (user) => (dispatch) => {
     .post(`${baseUrl}/login`)
     .send(user)
     .then(response => {
-      console.log("server -> Client", response.body)
       dispatch(setUser(response.body))
     })
     .catch(console.error)

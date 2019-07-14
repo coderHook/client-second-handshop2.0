@@ -6,7 +6,7 @@
  <br>github(this): https://github.com/coderHook/server-handshop-chance2.0
 
 Client: https://second-handshop-client.herokuapp.com/ <br>
-github: https://github.com/coderHook/chat-app-client
+github: https://github.com/coderHook/client-second-handshop2.0
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

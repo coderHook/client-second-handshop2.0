@@ -11,9 +11,10 @@ const updateAd = (editedAd) => {
 
 const baseUrl = 'https://second-handshop.herokuapp.com'
 
-export const editAd = (editAd) => (dispatch) => {
+export const editAd = (editAd, token) => (dispatch) => {
   request
     .put(`${baseUrl}/advertisements/${editAd.id}`)
+    .set({ 'Authorization': 'Bearer ' + token })
     .send(editAd)
     .then(response => {
       console.log('CLient', response)

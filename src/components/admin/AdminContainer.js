@@ -17,17 +17,19 @@ class AdminContainer extends Component {
 
   handleDelete = () => {
     console.log(`Deleting Ad: ${this.state.ad.id}`)
+    const { token } = this.props.currentUser
 
-    this.props.deleteAd(this.state.ad.id)
+    this.props.deleteAd(this.state.ad.id, token)
 
     this.setState({ open: false })
   }
 
   handleEdit = () => {
+    const { token } = this.props.currentUser
     const editedAd = this.state.ad
     this.setState({ open: false })
 
-    this.props.editAd(editedAd)
+    this.props.editAd(editedAd, token)
   }
 
   handleChange(event) {

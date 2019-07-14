@@ -28,7 +28,7 @@ export const setUser = (user) => ({
   payload: user
 })
 
-export const loadAds = (token) => (dispatch) => {
+export const loadAds = () => (dispatch) => {
   request(`${baseUrl}/advertisements`)
     .then(response => {
       dispatch(getAds(response.body))
@@ -44,9 +44,10 @@ export const loadAd = (id) => (dispatch) => {
   .catch(console.error)
 }
 
-export const deleteAd = (id) => (dispatch) => {
+export const deleteAd = (id, token) => (dispatch) => {
   request
     .delete(`${baseUrl}/advertisements/${id}`)
+    .set({ 'Authorization': 'Bearer ' + token })
     .then(response => {
       console.log('DELETING', response)
       dispatch(delAd(id))

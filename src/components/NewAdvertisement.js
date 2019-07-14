@@ -46,13 +46,14 @@ class NewAdvertisement extends Component {
       .then( result => {
         console.log('client: result', result)
         this.setState({submitted: true})
+        // Load again the list of advertisements.
+
+        // Redirect to the Advertisement created.
         this.props.history.push(`/advertisement/${result.body.id}`);
   
       })
       .catch(console.error)
-
-      this.props.history.push(`/advertisement/:id`);
-
+ 
   }
 
   render() {

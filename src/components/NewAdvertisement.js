@@ -36,16 +36,23 @@ class NewAdvertisement extends Component {
       phone: "",
     })
 
-    // const url = https://second-handshop.herokuapp.com/advertisements
+    const url = 'https://second-handshop.herokuapp.com/advertisements'
+    // const url = 'http://localhost:5000/advertisements'
+
     superagent
-      .post('http://localhost:5000/advertisements')
+      .post(url)
       .set({ 'Authorization': 'Bearer ' + this.props.currentUser.token })
       .send(newAd)
       .then( result => {
         console.log('client: result', result)
-        this.setState({submitted: true})  
+        this.setState({submitted: true})
+        this.props.history.push(`/advertisement/${result.body.id}`);
+  
       })
       .catch(console.error)
+
+      console.log('This.props', this.props)
+      this.props.history.push(`/advertisement/:id`);
 
   }
 

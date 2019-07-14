@@ -51,7 +51,6 @@ class NewAdvertisement extends Component {
       })
       .catch(console.error)
 
-      console.log('This.props', this.props)
       this.props.history.push(`/advertisement/:id`);
 
   }

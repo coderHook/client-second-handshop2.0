@@ -7,8 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import {setUser} from './../actions/actions'
-import './Menu.css'
+import { withRouter } from "react-router";
 
+import './Menu.css'
 
 import MenuList from './MenuList'
 
@@ -25,7 +26,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ButtonAppBar(props) {
+  console.log('What is in props', props)
+
   const classes = useStyles();
+
+  const logout = () => { 
+    props.history.push('/')
+    props.setUser(null)
+  }
 
   return (
     <div className={classes.root}>
@@ -42,7 +50,7 @@ function ButtonAppBar(props) {
                   <Button color="inherit">Login</Button>
                 </Link>
 
-              : <span className="welcome"><b>Hello, {props.currentUser.username}</b> <MenuList handleOff={() => props.setUser(null)}/></span>
+              : <span className="welcome"><b>Hello, {props.currentUser.username}</b> <MenuList handleOff={logout}/></span>
             }
         </Toolbar>
       </AppBar>
@@ -58,4 +66,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {setUser})(ButtonAppBar)
+export default withRouter(connect(mapStateToProps, {setUser})(ButtonAppBar))

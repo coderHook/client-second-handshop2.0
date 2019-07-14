@@ -16,7 +16,6 @@ class NewAdvertisement extends Component {
   }
 
   handleChange = (event) => {
-    console.log('event!!!!!',event.target.name)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -44,15 +43,16 @@ class NewAdvertisement extends Component {
       .set({ 'Authorization': 'Bearer ' + this.props.currentUser.token })
       .send(newAd)
       .then( result => {
-        console.log('client: result', result)
         this.setState({submitted: true})
-        // Load again the list of advertisements.
-
         // Redirect to the Advertisement created.
         this.props.history.push(`/advertisement/${result.body.id}`);
   
       })
-      .catch(console.error)
+      .catch(err => {
+        console.log(err)
+        // This must be changed for a validating on Form
+        this.setState({error: true})
+      })
  
   }
 
@@ -68,6 +68,7 @@ class NewAdvertisement extends Component {
         <h2>Publish Your Advertisement</h2>
         {this.props.currentUser.username}
         {this.state.submitted && <h2>Submitted!</h2>}
+        {this.state.error && <h2>Invalid Data!</h2>}
         <form onSubmit={this.handleSubmit}>
           <div style={{'marginTop': '50px'}}>
             <div className="single-card">

@@ -26,8 +26,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ButtonAppBar(props) {
-  console.log('What is in props', props)
-
   const classes = useStyles();
 
   const logout = () => { 
